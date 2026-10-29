@@ -821,3 +821,9 @@ ul.ct-bullets{list-style:disc}
 
 /* multi-page build: pages are no longer toggled with [hidden] */
 .ct-page{display:block}
+
+/* staging: Agency / Studio switch in the home hero */
+.ct-site-switch{display:inline-flex;gap:4px;padding:4px;border-radius:999px;background:rgba(222,220,208,.08);border:1px solid rgba(222,220,208,.14);margin-bottom:var(--gap-m)}
+.ct-site-switch a{padding:8px 20px;border-radius:999px;font-size:15px;font-weight:600;line-height:1.2;color:var(--white);text-decoration:none;transition:background .2s,color .2s}
+.ct-site-switch a:hover{color:#fff;background:rgba(222,220,208,.08)}
+.ct-site-switch a.is-active{background:var(--primary-color);color:var(--dark-color)}
