@@ -618,7 +618,7 @@ a.ct-proj-media:hover img{transform:scale(1.03)}
 .ct-approach-p{max-width:720px;margin:var(--gap-2xl) auto 0;font-size:var(--p-xl);line-height:1.55;color:var(--light-gray)}
 .ct-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--gap-s)}
 .ct-step{background:var(--light-field);border-radius:var(--r-2xl);padding:var(--gap-l);min-height:260px;display:flex;flex-direction:column}
-.ct-step:first-child{background:var(--primary-color)}
+.ct-step{transition:background-color .3s ease}.ct-step:hover{background:var(--primary-color)}
 .ct-step span{font-size:15px;font-weight:600;color:var(--dark-gray)}
 .ct-step h4{font-size:var(--h5);font-weight:600;margin:auto 0 10px;letter-spacing:var(--ls-m)}
 .ct-step p{font-size:15px;line-height:1.5;color:#3d3c37}
@@ -677,10 +677,6 @@ a.ct-proj-media:hover img{transform:scale(1.03)}
 #portfolio-trusted,#studio-trusted{background-color:var(--white);padding-top:0;padding-bottom:var(--gap-6xl)}
 #portfolio-trusted .trusted-single-img,#studio-trusted .trusted-single-img{filter:brightness(0);opacity:.85}
 #portfolio-trusted .trusted-title,#studio-trusted .trusted-title{color:var(--dark-gray)}
-/* Services page only: straight pink CTA band, flush between the products section and the footer */
-body[data-page="page-expertise"] .section.cta{padding-top:0;padding-bottom:0;background-color:#000}
-body[data-page="page-expertise"] .cta-single-wrap._01{transform:none;width:100%}
-body[data-page="page-expertise"] .cta-single-wrap._02{display:none}
 #expertise-products{padding-bottom:var(--gap-6xl)}
 /* podcast: Spotify section in the EP05 podcast branding (cream #F3F1E4, black, lime) */
 .section.ct-spotify{background:#F3F1E4;color:#000}
@@ -736,6 +732,91 @@ body[data-page="page-expertise"] .cta-single-wrap._02{display:none}
 .social-icon-wrap:hover .social-icon:nth-of-type(1),.social-icon-wrap:focus-visible .social-icon:nth-of-type(1){opacity:0}
 .social-icon-wrap:hover .social-icon:nth-of-type(2),.social-icon-wrap:focus-visible .social-icon:nth-of-type(2){opacity:1}
 #podcast-latest{scroll-margin-top:110px}
+/* v1.1: pink "Design" in the home hero title */
+.inner-title .ct-pink{color:var(--primary-color)}
+/* v1.1: hero stats carousel is driven by JS (auto-scroll + sideways trackpad / swipe) */
+.ct-stats.is-js .ct-stats-track{animation:none;will-change:transform}
+.ct-stats{touch-action:pan-y}
+/* v1.1: work thumbnails are the Agency Deck case-study covers (16:9) */
+.work-card-img{aspect-ratio:16/9}
+/* v1.1: "Systems-first" pill in Carbon instead of green */
+.plan-btm-text._03{background-color:var(--dark-field);color:var(--white)}
+/* v1.1: footer CTA band on every page: pink only, straight, sitting flush on the footer */
+.section.cta{padding-top:0;padding-bottom:0;background-color:#000}
+.section.cta .cta-single-wrap._01{transform:none;width:100%}
+.section.cta .cta-single-wrap._02{display:none}
+/* v1.1: two case studies now, so the article grids run two-up on desktop */
+@media (min-width:768px){.ct-art-more .blog-v1-grid-wrap{grid-template-columns:1fr 1fr}}
+
+/* v1.1: About page philosophy block is text only now (50+ card removed) */
+.ct-philo-grid{grid-template-columns:1fr}
+/* v1.1: Subomi's handwritten signature on the About page */
+.ct-founder-sig{display:block;width:190px;height:auto;margin-bottom:6px}
+/* v1.1: breathing room between the newsletter form and the note under it */
+.footer-form-block{margin-bottom:var(--gap-m)}
+/* v1.1: the dot before "Trusted by leading brands" is the Colorteam star (pink) */
+.trusted-dots{width:18px;height:18px;border-radius:0;background-color:var(--primary-color);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0c.5 4.6 2.4 6.9 8 8-5.6 1.1-7.5 3.4-8 8-.5-4.6-2.4-6.9-8-8 5.6-1.1 7.5-3.4 8-8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 0c.5 4.6 2.4 6.9 8 8-5.6 1.1-7.5 3.4-8 8-.5-4.6-2.4-6.9-8-8 5.6-1.1 7.5-3.4 8-8z'/%3E%3C/svg%3E") center/contain no-repeat}
+
+/* v1.1: newsletter asks for first name, last name and email */
+.ct-nl-names{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.footer-text-feild.ct-nl-name{padding-right:12px}
+.ct-nl-email{position:relative}
+/* ===== v1.1 mobile review ===== */
+/* hamburger centred in its button and flush with the right edge, so it lines up with the logo */
+@media (max-width:991px){.menu-button{display:flex;align-items:center;justify-content:flex-end}}
+/* "Since 2017" pill gets the same treatment as "Design-led" */
+.plan-btm-text._07{background-color:var(--white);color:var(--dark-color)}
+/* case study cards: no hover animation anywhere */
+.blog-v1-image,.blog-v1-image:hover{transform:none;filter:none;transition:none}
+.blog-v1-image-wrap:hover{transform:none}
+@media (max-width:767px){
+  /* the floating Scroll button overlapped content on phones */
+  .ct-scrolldown{display:none}
+  /* hero stats: two cards per screen, text sized to fit */
+  .ct-stats{-webkit-mask-image:none;mask-image:none}
+  .ct-stat{width:calc((100vw - 45px) / 2);padding:12px;border-radius:14px}
+  .ct-stat-top{flex-direction:column;align-items:flex-start;gap:6px}
+  .ct-stat-pill{padding:3px 8px;gap:5px;font-size:11px}
+  .ct-stat-pill b{width:5px;height:5px}
+  .ct-stat-client{font-size:11px;text-align:left;max-width:100%}
+  .ct-stat-num{font-size:34px;letter-spacing:-1.2px}
+  .ct-stat-num.is-long{font-size:28px;letter-spacing:-1px}
+  .ct-stat-label{margin-top:6px;font-size:12px;line-height:1.3;max-width:none}
+  /* WOR [image] KS: bring the image stack back on phones */
+  .work-title-img-wrap{display:flex}
+  .work-animated-img-wrap{width:64px;height:48px;max-width:none;border-radius:10px}
+  /* client logos a touch smaller */
+  .trusted-single-img{width:96px;margin-right:28px}
+  /* Four Ways We Help You Grow: no tap animation */
+  .growth-card-wrap,.growth-card-wrap:hover{transform:none;box-shadow:none}
+  .growth-card-wrapper:hover .growth-card-bg{height:0}
+  .growth-card-wrapper:hover .growth-card-title{color:var(--white)}
+  .growth-card-wrapper:hover .growth-card-details{color:var(--light-gray)}
+  .growth-card-wrapper:hover .growth-card-icon{transform:none}
+  /* Colorteam in Numbers: label sits under the number */
+  .number-top-wrap{flex-direction:column;align-items:flex-start;gap:6px}
+}
+/* v1.1: Podcast "Be Our Next Guest" cards: no hover/tap animation on any screen size */
+#podcast-steps .growth-card-wrap,#podcast-steps .growth-card-wrap:hover{transform:none;box-shadow:none}
+#podcast-steps .growth-card-wrapper:hover .growth-card-bg{height:0}
+#podcast-steps .growth-card-wrapper:hover .growth-card-title{color:var(--white)}
+#podcast-steps .growth-card-wrapper:hover .growth-card-details{color:var(--light-gray)}
+#podcast-steps .growth-card-wrapper:hover .growth-card-icon{transform:none}
+/* v1.2 privacy page + footer legal links */
+.ct-legal-links{display:flex;gap:var(--gap-l);flex-wrap:wrap;justify-content:center}
+.ct-legal-links a{color:inherit;text-decoration:none;font-size:inherit;font-weight:inherit;line-height:inherit}
+.ct-legal-links a:hover{color:var(--white)}
+.ct-legal .ct-art-col a{color:var(--dark-color);text-decoration:underline;text-underline-offset:3px}
+.ct-legal .ct-art-col a:hover{color:#c96f98}
+ul.ct-bullets{list-style:disc}
+.ct-legal .ct-art-col h3{margin-top:var(--gap-xl)}
+.section.ct-art-body.ct-legal{padding-top:var(--gap-3xl)}
+.ct-legal .ct-art-lead{margin-top:0}
+/* v1.2 offers: two-card panes centred, agencies pane single card */
+.pricing-tab-grid-wrap.ct-two{grid-template-columns:repeat(2,minmax(0,560px));justify-content:center}
+@media(max-width:767px){.pricing-tab-grid-wrap.ct-two{grid-template-columns:minmax(0,1fr)}}
+.pricing-inner-tab-link{white-space:nowrap}
+@media(max-width:479px){.pricing-inner-tab-link{padding:10px 12px;font-size:14px}}
 
 
 /* multi-page build: pages are no longer toggled with [hidden] */
